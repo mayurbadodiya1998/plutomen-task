@@ -1,0 +1,206 @@
+<div class="container">
+  <div class="row">
+    <div class="user-form col-4">
+      <div class="card p-3 mt-3">
+        <form class="form" [formGroup]="userAddForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label>Name<span class="text-danger"> *</span></label
+            ><br />
+
+            <input
+              type="text"
+              class="form-control"
+              formControlName="name"
+              id="name"
+            />
+            <span
+              class="form-error-message"
+              *ngIf="
+                (userFormControl['name'].touched || isUserFormSubmitted) &&
+                userFormControl['name'].errors?.['required']
+              "
+            >
+              Name is required
+            </span>
+          </div>
+          <div class="form-group">
+            <label>Mobile<span class="text-danger"> *</span></label
+            ><br />
+
+            <input
+              type="text"
+              class="form-control"
+              formControlName="mobile"
+              id="mobile"
+              (keypress)="isNumberKey($event)"
+            />
+            <span
+              class="form-error-message"
+              *ngIf="
+                (userFormControl['mobile'].touched || isUserFormSubmitted) &&
+                userFormControl['mobile'].errors?.['required']
+              "
+            >
+              Mobile is required
+            </span>
+          </div>
+          <div class="form-group">
+            <label>Email<span class="text-danger"> *</span></label
+            ><br />
+
+            <input
+              type="text"
+              class="form-control"
+              formControlName="email"
+              id="email"
+            />
+            <span
+              class="form-error-message"
+              *ngIf="
+                    (userFormControl['email'].touched || isUserFormSubmitted) &&
+                    userFormControl['email'].errors?.['required']
+                  "
+            >
+              Email is required
+            </span>
+          </div>
+          <div class="form-group">
+            <label>Gender<span class="text-danger"> *</span></label
+            ><br />
+
+            <ng-select
+              [items]="genderList"
+              bindLabel="key"
+              bindValue="value"
+              formControlName="gender"
+            >
+            </ng-select>
+            <span
+              class="form-error-message"
+              *ngIf="
+                        (userFormControl['gender'].touched || isUserFormSubmitted) &&
+                        userFormControl['gender'].errors?.['required']
+                      "
+            >
+              Gender is required
+            </span>
+          </div>
+          <div class="form-group">
+            <label>Role<span class="text-danger"> *</span></label
+            ><br />
+
+            <ng-select
+              [items]="roleList"
+              bindLabel="key"
+              bindValue="value"
+              formControlName="role"
+            >
+            </ng-select>
+            <span
+              class="form-error-message"
+              *ngIf="
+                            (userFormControl['role'].touched || isUserFormSubmitted) &&
+                            userFormControl['role'].errors?.['required']
+                          "
+            >
+              Role is required
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label>Country<span class="text-danger"> *</span></label
+            ><br />
+
+            <input
+              type="text"
+              class="form-control"
+              formControlName="country"
+              id="country"
+            />
+            <span
+              class="form-error-message"
+              *ngIf="
+                (userFormControl['country'].touched || isUserFormSubmitted) &&
+                userFormControl['country'].errors?.['required']
+              "
+            >
+              Country is required
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label>State<span class="text-danger"> *</span></label
+            ><br />
+
+            <input
+              type="text"
+              class="form-control"
+              formControlName="state"
+              id="state"
+            />
+            <span
+              class="form-error-message"
+              *ngIf="
+                (userFormControl['state'].touched || isUserFormSubmitted) &&
+                userFormControl['state'].errors?.['required']
+              "
+            >
+              State is required
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label>City<span class="text-danger"> *</span></label
+            ><br />
+
+            <input
+              type="text"
+              class="form-control"
+              formControlName="city"
+              id="city"
+            />
+            <span
+              class="form-error-message"
+              *ngIf="
+                (userFormControl['city'].touched || isUserFormSubmitted) &&
+                userFormControl['city'].errors?.['required']
+              "
+            >
+              City is required
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label>street<span class="text-danger"> *</span></label
+            ><br />
+
+            <input
+              type="text"
+              class="form-control"
+              formControlName="street"
+              id="street"
+            />
+            <span
+              class="form-error-message"
+              *ngIf="
+                (userFormControl['street'].touched || isUserFormSubmitted) &&
+                userFormControl['street'].errors?.['required']
+              "
+            >
+              Street is required
+            </span>
+          </div>
+
+          <div class="form-group text-center mt-3">
+            <button type="submit" class="btn btn-success mr-2">
+              {{ id > 0 ? "Update" : "add" }}
+            </button>
+            <button type="submit" class="btn btn-danger ml-2" routerLink="../">
+              Back
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
